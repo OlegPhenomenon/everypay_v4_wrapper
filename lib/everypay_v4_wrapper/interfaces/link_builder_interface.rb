@@ -1,9 +1,13 @@
 module LinkBuilderInterface
   def build_link
-    raise 'Not implemented'
+    raise NotImplementedError, 'Not implemented'
+  end
+
+  def transfer_money
+    raise NotImplementedError, 'Not implemented'
   end
 
   def parse_params
-    raise 'Not implemented'
+    raise NotImplementedError, 'Not implemented'
   end
 end

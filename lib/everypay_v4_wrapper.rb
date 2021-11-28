@@ -3,6 +3,8 @@ require 'everypay_v4_wrapper/version'
 require 'everypay_v4_wrapper/configuration'
 
 module EverypayV4Wrapper
+  class Error < StandardError; end
+  class NotAvailableError < Error; end
 
   class << self
     def configuration
