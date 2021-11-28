@@ -55,10 +55,17 @@ RSpec.describe EverypayV4Wrapper::LinkBuilder do
       expect(@link.build_link).to include('transaction_amount=20.00')
     end
 
-    it 'should translate mone if I sset flag and no defautl field' do
+    it 'should translate money if I set flag and no default field' do
       @params[:amount] = '2000'
       @link = described_class.new(params: @params, currency_translation: { field_name: 'amount', flag: true}, key: KEY)
       expect(@link.build_link).to include('amount=20.00')
+    end
+
+    it 'should translate money if I set flag and separete' do
+      @link = described_class.new(params: @params, currency_translation: { field_name: 'transaction_amount',
+                                                                           flag: true,
+                                                                           decimal_mark: ','}, key: KEY)
+      expect(@link.build_link).to include('transaction_amount=20,00')
     end
   end
 end

@@ -16,7 +16,7 @@ module EverypayV4Wrapper
     end
 
     def output_config_data
-      p "THis is your key: #{EverypayV4Wrapper.configuration.key}"
+      p "THis is your key: #{EverypayV4Wrapper.configuration.secret_key}"
     end
   end
 end

@@ -15,14 +15,23 @@ module EverypayV4Wrapper
                    everypay_url: 'https://igw-demo.every-pay.com/lp',
                    currency_translation: {
                      field_name: 'transaction_amount',
-                     flag: false
+                     flag: false,
+                     symbol: nil,
+                     currency: 'EUR',
+                     thousands_separator: false,
+                     decimal_mark: '.'
                    },
                    params:)
 
       @params = params
       @key = key
+
       @currency_translation_flag = currency_translation[:flag]
       @currency_translation_field = currency_translation[:field_name].to_sym
+      @currency_translation_symbol = currency_translation[:symbol]
+      @currency_translation_thousands_separator = currency_translation[:thousands_separator]
+      @currency_translation_currency = currency_translation[:currency]
+      @currency_translation_decimal_mark = currency_translation[:decimal_mark]
 
       @everypay_url = everypay_url
 
@@ -42,7 +51,10 @@ module EverypayV4Wrapper
       return unless @params[@currency_translation_field]
 
       price = EverypayV4Wrapper::MoneyTransfer.new(@params[@currency_translation_field])
-      price.transfer_it
+      price.transfer_it(currency: @currency_translation_currency,
+                        symbol: @currency_translation_symbol,
+                        thousands_separator: @currency_translation_thousands_separator,
+                        decimal_mark: @currency_translation_decimal_mark)
     end
 
     def parse_params
