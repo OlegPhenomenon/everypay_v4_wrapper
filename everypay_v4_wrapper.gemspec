@@ -9,12 +9,12 @@ Gem::Specification.new do |spec|
   spec.email         = ['oleg.phenomenon@gmail.com']
 
   spec.summary       = 'A Ruby interface to the Everypay V4'
-  # spec.homepage      = 'https://github.com/OlegPhenomenon/'
+  spec.homepage      = 'https://github.com/OlegPhenomenon/everypay_v4_wrapper'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0')
 
-  # spec.metadata['homepage_uri'] = spec.homepage
-  # spec.metadata['source_code_uri'] = 'https://github.com/OlegPhenomenon/'
+  spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = 'https://github.com/OlegPhenomenon/everypay_v4_wrapper'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
