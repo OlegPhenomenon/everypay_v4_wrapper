@@ -1,4 +1,5 @@
 require 'everypay_v4_wrapper/link_builder'
+require 'everypay_v4_wrapper/params_separator'
 require 'everypay_v4_wrapper/version'
 require 'everypay_v4_wrapper/configuration'
 
